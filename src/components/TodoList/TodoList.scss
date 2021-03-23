@@ -1,9 +1,11 @@
+@import '../../styles/main.scss';
+
 .todos {
   display: flex;
   align-items: center;
   flex-direction: column;
 
   &-title {
-    color: #464547;
+    color: $color-dark-gray;
   }
 }

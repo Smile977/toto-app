@@ -13,7 +13,8 @@ export const TodoList = () => {
   const {todos, setTodos} = useContext(TodoContext)
 
   const removeTodoHandler = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id))
+    const newTodos = [...todos].filter(todo => todo.id !== id)
+    setTodos(newTodos)
   }
 
   const checkboxHandler = (id) => {
@@ -26,16 +27,14 @@ export const TodoList = () => {
   return (
     <div className={cx('todos')}>
       { todos.length
-        ? todos.map((todo, index) => {
-            return (
-              <TodoItem 
-                key={index}
-                todo={todo}
-                removeTodo={removeTodoHandler}
-                checkboxHandler={checkboxHandler}
-              />
-            )
-          })
+        ? todos.map((todo, index) => (
+            <TodoItem 
+              key={index}
+              todo={todo}
+              removeTodo={removeTodoHandler}
+              checkboxHandler={checkboxHandler}
+            />
+          ))
         : (
             <h3 className={cx('todos-title')}>
               There are haven't todos yet

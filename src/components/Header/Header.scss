@@ -1,6 +1,8 @@
+@import '../../styles/main.scss';
+
 .header { 
   &-container {
-    background-color: #464547;
+    background-color: $color-dark-gray;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,7 +10,7 @@
     flex-direction: column;
   
     &__title {
-      color: #fff;
+      color: $color-white;
     }
   }
 }
