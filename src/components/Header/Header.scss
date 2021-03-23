@@ -1,0 +1,14 @@
+.header { 
+  &-container {
+    background-color: #464547;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    &__title {
+      color: #fff;
+    }
+  }
+}

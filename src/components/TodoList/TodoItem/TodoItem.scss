@@ -1,0 +1,52 @@
+.todo {
+  width: 80%;
+  min-height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #464547;
+  color: #fff;
+  border: 2px solid #fff;
+
+  &-container {
+    margin: 7px 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    &__checkbox {
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    &__info {
+      width: 100%;
+      display: flex;
+      margin: 0 12px;
+
+      &-text {
+        margin: 0;      
+      }
+      .complited {
+        text-decoration: line-through;
+      }
+    }
+
+    &__remove {
+      width: 24px;
+      height: 24px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #464547;
+      color: #fff;
+      border: 1px solid #fff;
+      outline: none;
+      cursor: pointer;
+    }
+  } 
+}

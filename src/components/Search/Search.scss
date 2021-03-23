@@ -1,0 +1,20 @@
+.search {
+  margin-bottom: 20px;
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    &__form {
+      width: 450px;
+
+      &-input {
+        width: 100%;
+        outline: none;
+        font-size: 18px;
+      }
+    }
+  } 
+}
