@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TodoContext from '../../context/context';
 
@@ -7,13 +7,13 @@ import { TodoList } from '../TodoList';
 
 export const App = () => {
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState([
-    {id: 0, title: 'First todo First todo First todo First todo First todo First todo First todo First todo First todo First todo First todo First todo First todo First todo', complited: false},
-    {id: 1, title: 'Second todo', complited: true},
-    {id: 2, title: 'One more todo', complited: true},
-    {id: 3, title: 'The next todo', complited: false},
-    {id: 4, title: 'Last todo', complited: false},
-  ]);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    fetch('/todos')
+    .then(res => res.json())
+    .then(todos => setTodos(todos))
+  }, [])
 
   const addTodo = (value) => {
     const newId = todos.length ? todos[todos.length - 1].id : 0;    
