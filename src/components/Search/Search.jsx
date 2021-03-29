@@ -17,19 +17,16 @@ export const Search = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (text.trim()) {
-      
       const data = {title: text};
       try {
         const response = await fetch('/todos/add', {
           method: 'POST',
-          // mode: 'cors', 
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json"
           }
         });
         const json = await response.json();
-        console.log('Успех:', JSON.stringify(json));
       } catch (error) {
         console.error('Ошибка:', error);
       }  
