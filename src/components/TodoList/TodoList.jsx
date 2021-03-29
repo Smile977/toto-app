@@ -12,16 +12,28 @@ const cx = classnames.bind(styles);
 export const TodoList = () => {
   const {todos, setTodos} = useContext(TodoContext)
 
-  const removeTodoHandler = (id) => {
-    const newTodos = [...todos].filter(todo => todo.id !== id)
-    setTodos(newTodos)
+  const removeTodoHandler = async (id) => {
+    try {
+      const response = await fetch(`/todos/${id}/delete`, {
+        method: 'DELETE'       
+      })
+      const json = await response.json();
+      setTodos(json)
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }  
   }
 
-  const checkboxHandler = (id) => {
-    const copyTodos = [...todos];
-    const todoComplited = copyTodos.find(todo => todo.id === id);
-    todoComplited.complited = !todoComplited.complited;
-    setTodos([...copyTodos])
+  const checkboxHandler = async (id) => {
+    try {
+      const response = await fetch(`/todos/${id}/update`, {
+        method: 'PUT'
+      })
+      const json = await response.json();
+      setTodos(json)
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
   }
 
   return (

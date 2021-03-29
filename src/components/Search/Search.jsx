@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import classnames from 'classnames/bind';
 
 import TodoContext from '../../context/context';
@@ -14,9 +14,25 @@ export const Search = () => {
     setText(event.target.value);
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (text.trim()) {
+      
+      const data = {title: text};
+      try {
+        const response = await fetch('/todos/add', {
+          method: 'POST',
+          // mode: 'cors', 
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const json = await response.json();
+        console.log('Успех:', JSON.stringify(json));
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }  
       addTodo(text.trim());
       setText('');
     }
