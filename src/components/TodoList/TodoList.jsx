@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames/bind';
 
 import TodoContext from '../../context/context';
@@ -10,11 +10,11 @@ import styles from './TodoList.scss';
 const cx = classnames.bind(styles);
 
 export const TodoList = () => {
-  const {todos, setTodos} = useContext(TodoContext)
+  const {todos, setTodos} = useContext(TodoContext);
 
   const removeTodoHandler = async (id) => {
     try {
-      const response = await fetch(`/todos/${id}/delete`, {
+      const response = await fetch(`/todos/${id}`, {
         method: 'DELETE'       
       })
       const json = await response.json();
@@ -26,7 +26,7 @@ export const TodoList = () => {
 
   const checkboxHandler = async (id) => {
     try {
-      const response = await fetch(`/todos/${id}/update`, {
+      const response = await fetch(`/todos/${id}`, {
         method: 'PUT'
       })
       const json = await response.json();

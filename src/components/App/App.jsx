@@ -15,14 +15,9 @@ export const App = () => {
     .then(todos => setTodos(todos))
   }, [])
 
-  const addTodo = (value) => {
-    const newId = todos.length ? todos[todos.length - 1].id : 0;    
-    setTodos([...todos, {id: newId + 1, title: value, complited: false}]);    
-  }
-
   return (
     <>
-      <TodoContext.Provider value={{text, setText, addTodo, todos, setTodos}}>
+      <TodoContext.Provider value={{text, setText, todos, setTodos}}>
         <Header />
         <TodoList />
       </TodoContext.Provider> 

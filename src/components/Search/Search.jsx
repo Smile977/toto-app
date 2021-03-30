@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames/bind';
 
 import TodoContext from '../../context/context';
@@ -8,7 +8,8 @@ import styles from './Search.scss';
 const cx = classnames.bind(styles);
 
 export const Search = () => {
-  const {text, setText, addTodo} = useContext(TodoContext)
+  const {text, setText} = useContext(TodoContext);
+  const {todos, setTodos} = useContext(TodoContext);
 
   const changeInputHandler = (event) => {
     setText(event.target.value);
@@ -27,10 +28,11 @@ export const Search = () => {
           }
         });
         const json = await response.json();
+        console.log(33333, todos);
+        setTodos(json);
       } catch (error) {
         console.error('Ошибка:', error);
-      }  
-      addTodo(text.trim());
+      }
       setText('');
     }
   }
