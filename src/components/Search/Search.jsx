@@ -28,7 +28,6 @@ export const Search = () => {
           }
         });
         const json = await response.json();
-        console.log(33333, todos);
         setTodos(json);
       } catch (error) {
         console.error('Ошибка:', error);
@@ -46,6 +45,7 @@ export const Search = () => {
         >
           <input
             className={cx('search-container__form-input')}
+            placeholder="add new todo"
             type="text"
             value={text} 
             onChange={changeInputHandler}

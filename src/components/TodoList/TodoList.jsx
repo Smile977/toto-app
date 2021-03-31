@@ -39,14 +39,19 @@ export const TodoList = () => {
   return (
     <div className={cx('todos')}>
       { todos.length
-        ? todos.map((todo, index) => (
+        ? (
+        <>
+        <h3>Todos:</h3>
+        {todos.map((todo, index) => (
             <TodoItem 
               key={index}
               todo={todo}
               removeTodo={removeTodoHandler}
               checkboxHandler={checkboxHandler}
             />
-          ))
+          ))}
+          </>
+        )
         : (
             <h3 className={cx('todos-title')}>
               There are haven't todos yet
