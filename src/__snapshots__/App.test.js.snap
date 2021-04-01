@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`render App before loading data from server 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <div
+      class="header-container"
+    >
+      <h3
+        class="header-container__title"
+      >
+        Todo List
+      </h3>
+      <div
+        class="function search() { [native code] }"
+      >
+        <div
+          class="search-container"
+        >
+          <form
+            class="search-container__form"
+          >
+            <input
+              class="search-container__form-input"
+              placeholder="add new todo"
+              type="text"
+              value=""
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div
+    class="todos"
+  >
+    <h3
+      class="todos-title"
+      data-testid="title-not-todos"
+    >
+      There are haven't todos yet
+    </h3>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`render App render App 1`] = `
 <DocumentFragment>
   <header
@@ -38,6 +84,7 @@ exports[`render App render App 1`] = `
   >
     <h3
       class="todos-title"
+      data-testid="title-not-todos"
     >
       There are haven't todos yet
     </h3>

@@ -53,7 +53,10 @@ export const TodoList = () => {
           </>
         )
         : (
-            <h3 className={cx('todos-title')}>
+            <h3             
+            data-testid="title-not-todos"
+            className={cx('todos-title')}
+            >
               There are haven't todos yet
             </h3>
           )     
